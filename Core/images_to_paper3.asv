@@ -1,0 +1,24 @@
+if exist(sr_ionos) == 0
+    sr_ionos =sr_ionos();
+end
+
+% Figure 1
+% a Figure 8
+sr_ionos.plot("NS", "f", "Lightning","hour",11)
+%b, Figure
+sr_ionos.plot("NS", "f", "hE","hour",11)
+% c
+sr_ionos.plot("NS", "f", "tec","hour",11)
+
+% Table I
+sr_ionos.print_table("NS","f","total_hour",0.01, "latex")
+
+%Figure 2,3,4,5,6,7
+sr_ionos.plot("NS", "f", "all","correlation",11)
+
+sr_ionos.print_table("NS","f","full",0.001, "latex")
+
+% Figure 8
+sr_ionos.plot("NS", "f", "Lightning","hour",11)
+% Figure 9
+sr_ionos.plot("NS", "f", "hE","hour",11)

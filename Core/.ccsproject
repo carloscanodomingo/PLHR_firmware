@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?ccsproject version="1.0"?>
+<projectOptions>
+	<ccsVersion value="10.1.1"/>
+	<deviceVariant value="Cortex M.CC3220SF"/>
+	<deviceFamily value="TMS470"/>
+	<deviceEndianness value="little"/>
+	<codegenToolVersion value="20.2.1.LTS"/>
+	<isElfFormat value="true"/>
+	<connection value="common/targetdb/connections/segger_j-link_connection.xml"/>
+	<rts value=""/>
+	<createSlaveProjects value=""/>
+	<ignoreDefaultDeviceSettings value="true"/>
+	<ignoreDefaultCCSSettings value="true"/>
+	<templateProperties value="id=empty_CC3220SF_LAUNCHXL_tirtos_ccs.projectspec.empty_CC3220SF_LAUNCHXL_tirtos_ccs,buildProfile=release,isHybrid=true"/>
+	<origin value="/home/carloscanodomingo/dev/simplelink_cc32xx_sdk_4_40_00_07/examples/rtos/CC3220SF_LAUNCHXL/drivers/empty/tirtos/ccs/empty_CC3220SF_LAUNCHXL_tirtos_ccs.projectspec"/>
+	<filesToOpen value=""/>
+	<isTargetManual value="false"/>
+</projectOptions>

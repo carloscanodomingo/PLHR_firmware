@@ -1,0 +1,148 @@
+/**
+ * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
+ * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
+ * @cliArgs --board "/ti/boards/CC3220SF_LAUNCHXL" --product "simplelink_cc32xx_sdk@4.40.00.07"
+ * @versions {"data":"2021010520","timestamp":"2021010520","tool":"1.7.0+1746","templates":null}
+ */
+
+/**
+ * Import the modules used in this configuration.
+ */
+const Display        = scripting.addModule("/ti/display/Display", {}, false);
+const Display1       = Display.addInstance();
+const ADC            = scripting.addModule("/ti/drivers/ADC", {}, false);
+const ADC1           = ADC.addInstance();
+const DMA            = scripting.addModule("/ti/drivers/DMA");
+const GPIO           = scripting.addModule("/ti/drivers/GPIO");
+const GPIO1          = GPIO.addInstance();
+const GPIO2          = GPIO.addInstance();
+const GPIO3          = GPIO.addInstance();
+const GPIO4          = GPIO.addInstance();
+const GPIO5          = GPIO.addInstance();
+const GPIO6          = GPIO.addInstance();
+const RTOS           = scripting.addModule("/ti/drivers/RTOS");
+const SD             = scripting.addModule("/ti/drivers/SD", {}, false);
+const SD1            = SD.addInstance();
+const SPI            = scripting.addModule("/ti/drivers/SPI");
+const Timer          = scripting.addModule("/ti/drivers/Timer", {}, false);
+const Timer1         = Timer.addInstance();
+const Timer2         = Timer.addInstance();
+const Timer3         = Timer.addInstance();
+const Timer4         = Timer.addInstance();
+const Timer5         = Timer.addInstance();
+const Watchdog       = scripting.addModule("/ti/drivers/Watchdog", {}, false);
+const Watchdog1      = Watchdog.addInstance();
+const SimpleLinkWifi = scripting.addModule("/ti/drivers/net/wifi/SimpleLinkWifi");
+const atcmd          = scripting.addModule("/ti/drivers/net/wifi/atcmd", {}, false);
+const atcmd1         = atcmd.addInstance();
+const net_utils      = scripting.addModule("/ti/drivers/net/wifi/net_utils", {}, false);
+const net_utils1     = net_utils.addInstance();
+const HTTPClient     = scripting.addModule("/ti/net/HTTPClient", {}, false);
+const HTTPClient1    = HTTPClient.addInstance();
+const HTTPServer     = scripting.addModule("/ti/net/HTTPServer", {}, false);
+const HTTPServer1    = HTTPServer.addInstance();
+const MQTT           = scripting.addModule("/ti/net/MQTT", {}, false);
+const MQTT1          = MQTT.addInstance();
+const SNTP           = scripting.addModule("/ti/net/SNTP");
+const SlNet          = scripting.addModule("/ti/net/SlNet", {}, false);
+const SlNet1         = SlNet.addInstance();
+const SlNetConn      = scripting.addModule("/ti/net/SlNetConn");
+const JSON           = scripting.addModule("/ti/utils/JSON");
+const tiUtilsRtos    = scripting.addModule("/ti/utils/RTOS");
+
+/**
+ * Write custom configuration values to the imported modules.
+ */
+Display1.$name                   = "CONFIG_Display_0";
+Display1.uartBufferSize          = 3000;
+Display1.uart.$name              = "CONFIG_UART_0";
+Display1.uart.uart.txPin.$assign = "boosterpack.8";
+
+ADC1.$name     = "CC3220SF_LAUNCHXL_ADC0";
+ADC1.$hardware = system.deviceData.board.components.OPA4342.subComponents.AIN3;
+
+GPIO1.$hardware      = system.deviceData.board.components.LED_RED;
+GPIO1.outputStrength = "High";
+GPIO1.$name          = "CONFIG_LED_RED";
+
+GPIO2.mode            = "Output";
+GPIO2.outputStrength  = "Low";
+GPIO2.$name           = "CONFIG_ISR_ALT";
+GPIO2.gpioPin.$assign = "boosterpack.19";
+
+GPIO3.mode            = "Output";
+GPIO3.outputStrength  = "High";
+GPIO3.$name           = "CONFIG_SEMAPHORE";
+GPIO3.gpioPin.$assign = "boosterpack.13";
+
+GPIO4.mode            = "Output";
+GPIO4.outputStrength  = "Low";
+GPIO4.$name           = "CONFIG_ISR_PRI";
+GPIO4.gpioPin.$assign = "boosterpack.15";
+
+GPIO5.$hardware = system.deviceData.board.components.SW2;
+GPIO5.$name     = "CONFIG_GPIO_BUTTON_0";
+
+GPIO6.$hardware = system.deviceData.board.components.SW3;
+GPIO6.$name     = "CONFIG_GPIO_BUTTON_1";
+
+const Power          = scripting.addModule("/ti/drivers/Power", {}, false);
+Power.parkPins.$name = "ti_drivers_power_PowerCC32XXPins0";
+
+SD1.$name                 = "CONFIG_SD_0";
+SD1.sdHost.$assign        = "SDHost0";
+SD1.sdHost.clkPin.$assign = "boosterpack.9";
+SD1.sdHost.cmdPin.$assign = "boosterpack.10";
+scripting.suppress("Connected to hardware,@@@.+?@@@ is connected to LaunchPad I2C on the CC3220SF LaunchPad\. Consider selecting it in 'use hardware' above\. @@@.+?@@@",SD1.sdHost.clkPin);
+scripting.suppress("Connected to hardware,@@@.+?@@@ is connected to LaunchPad I2C on the CC3220SF LaunchPad\. Consider selecting it in 'use hardware' above\. @@@.+?@@@",SD1.sdHost.cmdPin);
+
+Timer1.timerType     = "32 Bits";
+Timer1.$name         = "CONFIG_TIMER_SOFTTIMER";
+Timer1.timer.$assign = "Timer0";
+
+Timer2.$name         = "CONFIG_TIMER_1";
+Timer2.timer.$assign = "Timer1";
+
+Timer3.$name         = "CONFIG_TIMER_2";
+Timer3.timer.$assign = "Timer1";
+
+Timer4.$name     = "CONFIG_TIMER_3";
+Timer4.timerType = "32 Bits";
+
+Timer5.$name     = "CONFIG_TIMER_4";
+Timer5.timerType = "32 Bits";
+
+Watchdog1.$name = "CONFIG_WATCHDOG_0";
+
+atcmd1.$name = "CONFIG_ATCMD_0";
+
+net_utils1.$name = "CONFIG_NET_UTILS_0";
+
+HTTPClient1.$name = "CONFIG_HTTPCLIENT_0";
+
+HTTPServer1.$name = "CONFIG_HTTPSERVER_0";
+
+MQTT1.$name = "CONFIG_MQTT_0";
+
+SlNet1.$name = "CONFIG_SLNET_0";
+
+SlNetConn.generateEventThread = true;
+
+/**
+ * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
+ * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
+ * re-solve from scratch.
+ */
+Display1.uart.uart.$suggestSolution       = "UART0";
+Display1.uart.uart.rxPin.$suggestSolution = "boosterpack.17";
+ADC1.adc.$suggestSolution                 = "ADC0";
+ADC1.adc.adcPin.$suggestSolution          = "boosterpack.26";
+GPIO1.gpioPin.$suggestSolution            = "boosterpack.29";
+GPIO5.gpioPin.$suggestSolution            = "boosterpack.3";
+GPIO6.gpioPin.$suggestSolution            = "boosterpack.11";
+SD1.sdHost.dataPin.$suggestSolution       = "boosterpack.14";
+SD1.sdHost.dmaTxChannel.$suggestSolution  = "UDMA_CH15";
+SD1.sdHost.dmaRxChannel.$suggestSolution  = "UDMA_CH14";
+Timer4.timer.$suggestSolution             = "Timer3";
+Timer5.timer.$suggestSolution             = "Timer2";
+Watchdog1.watchdog.$suggestSolution       = "WATCHDOG0";
